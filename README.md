@@ -1,45 +1,41 @@
-# 🎓 Aplicação Web Java - EBAC Módulo 39
+# Aplicação Web Java - EBAC Módulo 39 ☕
 
-Uma aplicação web completa desenvolvida em Java utilizando Servlets, JSP e Apache Tomcat.
+Fala pessoal! Este é meu projeto do Módulo 39 da EBAC, onde criei uma aplicação web usando Java com Servlets, JSP e Tomcat.
 
-## 📋 Sobre o Projeto
+## O que tem nesse projeto?
 
-Este projeto foi desenvolvido para o Módulo 39 da EBAC e demonstra conceitos fundamentais de desenvolvimento web com Java, incluindo:
+Basicamente é uma aplicação web bem completa que demonstra como funciona o desenvolvimento web com Java. Usei as seguintes tecnologias:
 
-- ☕ **Java Servlets** - Processamento de requisições HTTP
-- 📄 **JSP (JavaServer Pages)** - Geração dinâmica de conteúdo HTML
-- 🚀 **Apache Tomcat** - Servidor de aplicação
-- 📦 **Maven** - Gerenciamento de dependências e build
-- 🎨 **CSS3** - Estilização moderna e responsiva
+- **Java Servlets** - Para processar as requisições do usuário
+- **JSP** - Para criar as páginas dinâmicas
+- **Tomcat** - Servidor pra rodar tudo
+- **Maven** - Pra gerenciar as dependências (facilita muito!)
+- **CSS** - Deixei tudo bonitinho com um visual moderno
 
-## 🚀 Funcionalidades
+## O que dá pra fazer?
 
-### 1. Página Inicial
-- Interface intuitiva com informações sobre o projeto
-- Links de navegação para todas as funcionalidades
+A aplicação tem três áreas principais:
 
-### 2. Gerenciamento de Usuários
-- ➕ Adicionar novos usuários
-- 📋 Listar todos os usuários
-- 🗑️ Excluir usuários
+**Página Inicial**  
+Você chega lá e já vê uma introdução legal sobre o projeto, com links pra navegar entre as funcionalidades.
 
-### 3. Gerenciamento de Produtos
-- ➕ Cadastrar novos produtos
-- 📋 Visualizar estoque completo
-- 💰 Calcular valor total do estoque
-- 🗑️ Remover produtos
+**Gerenciar Usuários**  
+Aqui você pode cadastrar usuários (nome e email), ver a lista completa e apagar quando quiser.
 
-## 🛠️ Tecnologias Utilizadas
+**Gerenciar Produtos**  
+Mesma ideia dos usuários, mas pra produtos. Dá pra cadastrar com nome, preço e quantidade, ver o estoque todo e até calcula o valor total automaticamente. Bem útil!
 
-- **Java** 11
-- **Maven** 3.x
-- **Servlet API** 4.0.1
-- **JSP API** 2.3.3
-- **JSTL** 1.2
-- **Apache Tomcat** 9.x ou 10.x
-- **HTML5** & **CSS3**
+## Tecnologias que usei
 
-## 📁 Estrutura do Projeto
+- Java 11
+- Maven 3.x
+- Servlet API 4.0.1
+- JSP API 2.3.3
+- JSTL 1.2
+- Apache Tomcat (versão 7 com o plugin do Maven)
+- HTML5 e CSS3
+
+## Como tá organizado
 
 ```
 webapp-java-tomcat/
@@ -61,161 +57,70 @@ webapp-java-tomcat/
 └── pom.xml
 ```
 
-## ⚙️ Pré-requisitos
+## O que você precisa ter instalado?
 
-Antes de começar, certifique-se de ter instalado:
+Se você for usar o IntelliJ IDEA (ou outra IDE que já vem com Maven integrado), só precisa de:
+- **Java JDK 11** ou mais recente - pra verificar se já tem: `java -version`
 
-1. **Java JDK 11** ou superior
-   - Verifique: `java -version`
-   - Download: https://www.oracle.com/java/technologies/downloads/
+Se for rodar direto pelo terminal:
+- Java JDK 11+
+- Maven 3.x
 
-2. **Maven** 3.x
-   - Verifique: `mvn -version`
-   - Download: https://maven.apache.org/download.cgi
+**A boa notícia:** Não precisa baixar o Tomcat separado! O projeto já vem configurado com o plugin do Maven que roda tudo pra você.
 
-3. **Apache Tomcat** 9.x ou 10.x
-   - Download: https://tomcat.apache.org/download-90.cgi
+## Como rodar esse projeto?
 
-## 🔧 Como Executar
+É bem tranquilo! Se você tiver o IntelliJ IDEA (recomendo!):
 
-### Opção 1: Build com Maven e Deploy Manual
+1. Abre o IntelliJ e clica em `File` → `Open`
+2. Escolhe a pasta do projeto
+3. Espera o IntelliJ baixar as dependências (demora um pouquinho na primeira vez)
+4. No painel Maven (lado direito), expande: `webapp-java-tomcat` → `Plugins` → `tomcat7`
+5. Dá um duplo clique em `tomcat7:run`
+6. Pronto! Quando aparecer "Running war on http://localhost:8080/webapp-ebac", é só abrir no navegador
 
-1. **Clone ou navegue até o diretório do projeto:**
-   ```bash
-   cd "c:\Users\Nay Safada\Desktop\Mod39\webapp-java-tomcat"
-   ```
-
-2. **Compile e gere o arquivo WAR:**
-   ```bash
-   mvn clean package
-   ```
-
-3. **Copie o arquivo WAR gerado para o Tomcat:**
-   - O arquivo `webapp-ebac.war` estará em `target/`
-   - Copie para `%CATALINA_HOME%\webapps\`
-   ```bash
-   copy target\webapp-ebac.war C:\caminho\para\tomcat\webapps\
-   ```
-
-4. **Inicie o Tomcat:**
-   - Windows: Execute `%CATALINA_HOME%\bin\startup.bat`
-   - Linux/Mac: Execute `$CATALINA_HOME/bin/startup.sh`
-
-5. **Acesse a aplicação:**
-   - Abra o navegador em: http://localhost:8080/webapp-ebac/
-
-### Opção 2: Usando Maven Tomcat Plugin (Desenvolvimento)
-
-Você pode adicionar o plugin do Tomcat no `pom.xml` e executar diretamente:
-
+**Pelo terminal:**
 ```bash
-mvn tomcat7:run
+mvn clean tomcat7:run
 ```
 
-### Opção 3: Deploy via Tomcat Manager
+Depois acessa: `http://localhost:8080/webapp-ebac/`
 
-1. Acesse o Tomcat Manager: http://localhost:8080/manager
-2. Use a opção "WAR file to deploy"
-3. Selecione o arquivo `target/webapp-ebac.war`
-4. Clique em "Deploy"
+## Como usar?
 
-## 📱 Uso da Aplicação
+É bem intuitivo. Você vai cair na página inicial e de lá pode:
 
-### Página Inicial
-- Acesse: `http://localhost:8080/webapp-ebac/`
-- Visualize informações sobre o projeto
-- Navegue pelos módulos disponíveis
+- Clicar em **Gerenciar Usuários** pra brincar com o CRUD de usuários
+- Clicar em **Gerenciar Produtos** pra testar o cadastro de produtos
+- Adicionar, listar e deletar o quanto quiser!
 
-### Gerenciar Usuários
-- Acesse: `http://localhost:8080/webapp-ebac/users`
-- Adicione usuários com nome e email
-- Visualize a lista de usuários cadastrados
-- Exclua usuários conforme necessário
+## O que aprendi fazendo isso?
 
-### Gerenciar Produtos
-- Acesse: `http://localhost:8080/webapp-ebac/products`
-- Cadastre produtos com nome, preço e quantidade
-- Visualize o estoque completo
-- Veja o valor total do estoque calculado automaticamente
-- Remova produtos do estoque
+Esse projeto me ajudou a entender melhor:
 
-## 🎯 Conceitos Demonstrados
+- **Padrão MVC** - Separar bem as responsabilidades do código
+- **Servlets** - Como Java processa as requisições HTTP (doGet, doPost, etc)
+- **JSP** - Criar páginas dinâmicas misturando HTML com Java
+- **CRUD** - Criar, Ler, Atualizar (ainda não tem) e Deletar informações
 
-### 1. **Padrão MVC (Model-View-Controller)**
-   - **Model:** Classes internas User e Product
-   - **View:** Arquivos JSP (index.jsp, users.jsp, products.jsp)
-   - **Controller:** Servlets (HomeServlet, UserServlet, ProductServlet)
+## Coisas que ainda posso melhorar
 
-### 2. **Servlets HTTP**
-   - Métodos doGet() e doPost()
-   - Processamento de parâmetros de requisição
-   - Redirecionamento e forward
+- Conectar com um banco de dados de verdade (tipo MySQL)
+- Adicionar a função de editar (por enquanto só tem cadastrar e deletar)
+- Colocar um sisteminha de login
+- Fazer paginação quando tiver muitos registros
+- Adicionar busca e filtros
 
-### 3. **JSP (JavaServer Pages)**
-   - Scriptlets Java embutidos
-   - Expression Language
-   - Uso de JSTL (implícito)
+## Se der algum erro...
 
-### 4. **CRUD Operations**
-   - **Create:** Adicionar usuários e produtos
-   - **Read:** Listar usuários e produtos
-   - **Update:** (Pode ser implementado)
-   - **Delete:** Remover usuários e produtos
+**Erro 404:** Verifica se o Tomcat iniciou certinho. Olha no console se tem a mensagem "Running war on..."
 
-## 🔒 Configurações de Segurança
+**Porta 8080 ocupada:** Alguma outra coisa tá usando essa porta. Fecha ela ou muda a porta no pom.xml (tag `<port>`)
 
-Para produção, considere adicionar:
-- Autenticação e autorização
-- Validação de entrada mais robusta
-- Proteção contra SQL Injection (quando usar banco de dados)
-- HTTPS/SSL
-- CSRF protection
-
-## 📝 Melhorias Futuras
-
-- [ ] Integração com banco de dados (MySQL, PostgreSQL)
-- [ ] Função de editar usuários e produtos
-- [ ] Sistema de autenticação
-- [ ] Paginação nas listagens
-- [ ] Busca e filtros
-- [ ] API REST
-- [ ] Testes unitários
-- [ ] Validação de formulários no cliente
-
-## 🐛 Solução de Problemas
-
-### Erro: "404 - Not Found"
-- Verifique se o Tomcat está rodando
-- Confirme se o arquivo WAR foi deployado corretamente
-- Verifique o caminho da URL
-
-### Erro: "500 - Internal Server Error"
-- Verifique os logs do Tomcat em `%CATALINA_HOME%\logs\`
-- Confirme se todas as classes foram compiladas corretamente
-- Verifique o arquivo web.xml
-
-### Porta 8080 já em uso
-- Pare outros serviços usando a porta 8080
-- Ou altere a porta do Tomcat em `server.xml`
-
-## 📚 Recursos de Aprendizado
-
-- [Tutorial Java Servlets - Oracle](https://docs.oracle.com/javaee/7/tutorial/servlets.htm)
-- [JSP Tutorial](https://www.javatpoint.com/jsp-tutorial)
-- [Apache Tomcat Documentation](https://tomcat.apache.org/tomcat-9.0-doc/)
-- [Maven Getting Started](https://maven.apache.org/guides/getting-started/)
-
-## 👨‍💻 Autor
-
-Projeto desenvolvido para EBAC - Escola Britânica de Artes Criativas e Tecnologia  
-Módulo 39 - Tecnologias Web com Java
-
-## 📄 Licença
-
-Este projeto é de código aberto e está disponível para fins educacionais.
+**Maven não funciona:** Se você tiver usando uma IDE como IntelliJ ou Eclipse, usa o Maven integrado delas mesmo.
 
 ---
 
-**Desenvolvido com ☕ e 💙 para a EBAC**
+Projeto feito com dedicação para o curso da EBAC ☕
 
-🎓 Bons estudos e bom desenvolvimento!
+Qualquer dúvida, só chamar!
